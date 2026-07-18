@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-
+from models.diary_entry import DiaryEntry
 
 # let's define a class from which we can instantiate an object
 class Entry:
@@ -32,3 +32,10 @@ def get_root():
 @app.get("/api/diary-entries/entry-1")
 def get_entries():
     return entry_example.from_object_to_json()
+
+
+
+@app.post("/api/v1/diary-entries/")
+def adding_diary_entry(diary_entry: DiaryEntry) -> DiaryEntry:
+    return diary_entry
+    
