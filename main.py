@@ -28,6 +28,10 @@ app = FastAPI()
 def get_root():
     return {"ahh": "you're back!"}
 
+@app.get("/health")
+def status():
+    return {"status": "ok"}
+
 # route for getting a post or diary entry?
 @app.get("/api/diary-entries/entry-1")
 def get_entries():
